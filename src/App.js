@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from "./pages/NavBar/NavBar"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ViewBooking from "./pages/ViewBooking/ViewBooking"
+import Home from "./pages/Home/Home";
+import Booking from "./pages/Booking/Booking";
+import Management from "./pages/Management/management"
+import BookingDetails from "./pages/BookingDetails/BookingDetails"
+import ErrorBoundary from "./Components/ErrorBoundary/ErrorBoundary";
+const App=()=>{
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+<ErrorBoundary>
+    <NavBar/>
+    
+      <Routes>
+        <Route path="/" element={<Home />}/>
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/viewbooking" element={<ViewBooking />} />
+          <Route path="/viewbooking/:bookingId" element={<BookingDetails />} />
+          <Route path="/management" element={<Management />} />
+      </Routes>
+        </ErrorBoundary>
+    </BrowserRouter>
+</>
+  )
 }
-
 export default App;

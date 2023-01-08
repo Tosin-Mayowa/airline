@@ -1,0 +1,55 @@
+ .NavDiv {
+     display: flex;
+     justify-content: space-around;
+ }
+
+ .Nav {
+     background-color: #87CEEB;
+     height: 100px;
+     width: 100%;
+ }
+
+ .Icon {
+     margin-top: 30px;
+     font-size: 30px;
+     color: #fff;
+
+ }
+
+ .List:hover {
+     border-bottom: 2px solid #fff;
+ }
+
+ .Link {
+     display: block;
+     padding: 8px;
+     color: #fff;
+     font-size: 16px;
+     text-decoration: none;
+     font-weight: 500;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     cursor: pointer;
+ }
+
+
+
+ .ListParent {
+     list-style-type: none;
+     margin-top: 30px;
+     padding: 0;
+     display: flex;
+     justify-content: space-between;
+ }
+
+
+
+
+
+ .LinkDec {
+     text-decoration: none;
+ }
+
+ .Logo{
+     color:white;
+ }
