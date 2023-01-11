@@ -38,17 +38,18 @@ export default function StaffTable() {
     const getAllStaff = useCallback(async () => {
         const resp = await axios.get('https://airline-production.up.railway.app/staff');
         console.log({ data: resp?.data});
-        setStaffData(resp?.data)
+        const data = resp?.data;
+        setStaffData((prev)=>[...prev,...data])
     }, []);
 
- /*    useEffect(()=>{
+ useEffect(()=>{
     getAllStaff();
-},[]) */
+},[])
 
     useEffect(() => {
-      
-         getAllStaff();
-    }, [staffData, getAllStaff])
+     
+        if (staffData.length)getAllStaff();
+    }, [staffData])
 
     const tableHeader = useMemo(
         () => [

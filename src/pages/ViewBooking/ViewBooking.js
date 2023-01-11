@@ -24,8 +24,9 @@ const ViewBooking= () => {
 const [val,setVal]=useState('');
     const getAllBooking = useCallback(async () => {
         const resp = await axios.get('https://airline-production.up.railway.app/booking');
-        
-        setBookingData(resp?.data)
+        const data = resp?.data;
+        setBookingData((prev) => [...prev, ...data])
+    
     }, []);
     
     

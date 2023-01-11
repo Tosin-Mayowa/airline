@@ -35,15 +35,20 @@ export default function AircraftTable() {
     };
     const getAllAircraft = useCallback(async () => {
         const resp = await axios.get('https://airline-production.up.railway.app/aircraft');
-        console.log({ air: resp?.data});
-        setAircraftData(resp?.data);
+        const data = resp?.data;
+        setAircraftData((prev) => [...prev, ...data])
+       
 
     }, []);
 
     
     useEffect(() => {
         getAllAircraft();
-    }, [aircraftData, getAllAircraft])
+    }, [])
+
+    useEffect(() => {
+        if(aircraftData.length)getAllAircraft();
+    }, [aircraftData])
     const tableHeader = useMemo(
         () => [
             {

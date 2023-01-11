@@ -9,8 +9,7 @@ const Home = () => {
           <h1 className="Heading">
             Book Your Airline Ticket Easy & Fast
 </h1>
-<p className="para">
-Love the tyuiijnnn 
+<p className="Para">This is just a school assignment to test the understanding of Database
 </p>
 </div>
 </div>

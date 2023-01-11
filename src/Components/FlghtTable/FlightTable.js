@@ -33,15 +33,18 @@ export default function FlightTable() {
     };
     const getAllFlight = useCallback(async () => {
         const resp = await axios.get('https://airline-production.up.railway.app/flights');
-        console.log(resp?.data);
-        setFlightData(resp?.data)
+        const data = resp?.data;
+        setFlightData((prev) => [...prev, ...data])
+        
     }, []);
 
-  
+    useEffect(() => {
+        getAllFlight();
+    }, [])
 
     useEffect(() => {
- getAllFlight();
-    }, [flightData, getAllFlight])
+        if (flightData.length)getAllFlight();
+    }, [flightData])
 
     const tableHeader = useMemo(
         () => [
